@@ -4,10 +4,53 @@
   <meta charset="UTF-8">
   <title>Mary Amaechi</title>
   <style> body { font-family: Arial, sans-serif; margin: 0; padding: 0; scroll-behavior: smooth; line-height: 1.6; } 
-  /* NEW — top bar with name + menu icon */ header { position: fixed; top: 0; width: 100%; background: #333; color: white; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; } 
+ header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #333;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
   /* NEW — your name always visible */ .site-title { font-size: 20px; font-weight: bold; } 
-  /* NEW — hamburger icon */ .menu-icon { color: white; font-size: 28px; cursor: pointer; user-select: none; } 
-  /* NEW — hidden menu */ nav { display: none; background: #444; padding: 10px 0; } nav ul { list-style: none; margin: 0; padding: 0; text-align: center; } nav ul li { margin: 12px 0; } nav ul li a { color: white; text-decoration: none; font-size: 18px; } nav ul li a:hover { text-decoration: underline; } 
+  /* NEW — hamburger icon */ .menu-icon { color: white; font-size: 36px; cursor: pointer; user-select: none; padding: 5px 10px; } 
+  /* UPDATED — dropdown menu under the icon */
+nav {
+  display: none;
+  position: absolute;
+  top: 60px;        /* positions menu under header */
+  right: 20px;      /* aligns menu under the icon */
+  background: #444;
+  padding: 10px 0;
+  border-radius: 6px;
+  width: 180px;     /* dropdown width */
+  z-index: 999;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 10px 15px;
+  text-align: left;  /* align items nicely */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;    /* makes whole row clickable */
+}
+
+  
   /* Page sections */ section { padding: 100px 20px 60px; max-width: 900px; margin: auto; } h2 { margin-top: 0; padding-top: 40px; border-bottom: 2px solid #ddd; padding-bottom: 10px; } h3 { margin-top: 30px; } .subsection { margin-left: 20px; } </style>
 
 
