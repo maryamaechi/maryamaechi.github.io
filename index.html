@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <title>Mary Amaechi</title>
   <style> body { font-family: Arial, sans-serif; margin: 0; padding: 0; scroll-behavior: smooth; line-height: 1.6; } 
- header {
+ 
+
+/* UPDATED — icon + name aligned left */
+header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -12,19 +15,21 @@
   color: white;
   padding: 12px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;   /* NEW: align items to the left */
+  gap: 15px;                     /* NEW: space between icon and name */
   align-items: center;
   z-index: 1000;
 }
 
+
   /* NEW — your name always visible */ .site-title { font-size: 20px; font-weight: bold; } 
-  /* NEW — hamburger icon */ .menu-icon { color: white; font-size: 36px; cursor: pointer; user-select: none; padding: 5px 10px; } 
+  /* NEW — hamburger icon */ .menu-icon { color: white; font-size: 42px; cursor: pointer; user-select: none; padding: 5px 10px; } 
   /* UPDATED — dropdown menu under the icon */
 nav {
   display: none;
   position: absolute;
   top: 60px;        /* positions menu under header */
-  right: 20px;      /* aligns menu under the icon */
+  left: 20px;      /* aligns menu under the icon */
   background: #444;
   padding: 10px 0;
   border-radius: 6px;
@@ -61,8 +66,16 @@ nav ul li a {
 <body>
 
 
-  <!-- NEW — top bar with name + hamburger --> <header> <div class="site-title">Mary Amaechi</div> <div class="menu-icon" onclick="toggleMenu()">☰</div> </header> 
-   <!-- NEW — collapsible navigation --> <nav id="nav-menu"> <ul> <li><a href="#about">About</a></li> <li><a href="#output">Output</a></li> <li><a href="#cv">CV</a></li> <li><a href="#contact">Contact</a></li> </ul> </nav>
+  <header>
+  <!-- NEW: icon first -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <!-- Name second -->
+  <div class="site-title">Mary Amaechi</div>
+</header>
+
+ 
+  <!-- NEW — collapsible navigation --> <nav id="nav-menu"> <ul> <li><a href="#about">About</a></li> <li><a href="#output">Output</a></li> <li><a href="#cv">CV</a></li> <li><a href="#contact">Contact</a></li> </ul> </nav>
 
 
 <!-- About --> <section id="about"> <h2>About</h2> 
