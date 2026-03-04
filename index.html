@@ -24,18 +24,20 @@ header {
 
   /* NEW — your name always visible */ .site-title { font-size: 20px; font-weight: bold; } 
   /* NEW — hamburger icon */ .menu-icon { color: white; font-size: 28px; cursor: pointer; user-select: none; padding: 5px 10px; } 
-  /* UPDATED — dropdown menu under the icon */
+ /* UPDATED — dropdown under left icon with animation */
 nav {
-  display: none;
   position: absolute;
-  top: 60px;        /* positions menu under header */
-  left: 20px;      /* aligns menu under the icon */
+  top: 60px;
+  left: 20px;
   background: #444;
-  padding: 10px 0;
   border-radius: 6px;
-  width: 180px;     /* dropdown width */
+  width: 180px;
+  overflow: hidden;          /* NEW — required for animation */
+  max-height: 0;             /* NEW — menu starts closed */
+  transition: max-height 0.3s ease-out;   /* NEW — smooth slide */
   z-index: 999;
 }
+
 
 nav ul {
   list-style: none;
@@ -59,7 +61,30 @@ nav ul li a {
   /* Page sections */ section { padding: 100px 20px 60px; max-width: 900px; margin: auto; } h2 { margin-top: 0; padding-top: 40px; border-bottom: 2px solid #ddd; padding-bottom: 10px; } h3 { margin-top: 30px; } .subsection { margin-left: 20px; } </style>
 
 
-<!-- NEW — simple JavaScript to toggle menu --> <script> function toggleMenu() { const nav = document.getElementById("nav-menu"); nav.style.display = nav.style.display === "block" ? "none" : "block"; } </script>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+
+    if (nav.style.maxHeight === "0px" || nav.style.maxHeight === "") {
+      nav.style.maxHeight = "300px";   // opens menu with slide
+    } else {
+      nav.style.maxHeight = "0px";     // closes menu with slide
+    }
+  }
+
+  /* NEW — auto-close menu when clicking a link */
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll("#nav-menu a");
+    const nav = document.getElementById("nav-menu");
+
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        nav.style.maxHeight = "0px";   // closes menu after click
+      });
+    });
+  });
+</script>
+
 
 </head>
 
